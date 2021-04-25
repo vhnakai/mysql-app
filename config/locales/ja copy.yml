@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        sex: 性別
+
+  enumerize:
+    user:
+      sex:
+        man: 男
+        woman: 女

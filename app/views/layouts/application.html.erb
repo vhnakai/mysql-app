@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MysqlApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <header>
+         <% if user_signed_in? %>
+         <p class = "login_username">ログインユーザー：
+         <%= current_user.name %></p>
+          <% end %>
+
+          <%= link_to("homeに戻る", "/home/index")%><br />
+          <% if user_signed_in? %>
+          <%= link_to "プロフィール", "/users/mypage" %>
+          <% end %>          
+          <br />
+
+         <div class="header-logo">
+         <ul class="header-menus">
+
+          <% if user_signed_in? %>
+          <li><%= link_to "ユーザー一覧", "/users/index" %></li>
+          <li class="dropdown">
+          <% end %> 
+
+          <li>
+          <%= link_to("このサイトとは何？","/about")%>
+          </li>
+          <li>
+          <%= link_to("掲示板","/topics/index")%>
+          </li>
+          <% unless user_signed_in? %>
+          <li>
+          <%= link_to("新規登録","/users/sign_up")%>
+          </li>
+          <% end %>
+          <% unless user_signed_in? %>
+          <li>
+          <%= link_to "ログイン", new_user_session_path, class: 'post' %>
+          </li>
+          <% end %>
+          <% if user_signed_in? %>
+          <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li><br /><% end %>
+          </ul>
+          </div>
+
+
+
+  </header>
+   <body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+  <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<div class="main users-new">
+  <div class="container">
+    <div class="form-heading">新規ユーザー登録</div>
+    <div class="form users-form">
+
+  <%= form_for @user, url: users_sign_up_confirm_path(@user), local: true do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "Eメール" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "パスワード"%>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "確認用パスワード" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="sex-field">
+    <%= f.label , "性別"%><br />
+    <%= f.label :男  %>
+    <%= f.radio_button , :man %>
+    <%= f.label :女  %>
+    <%= f.radio_button , :woman %>
+</div>
+
+  <div class="sex-field">
+   <%= f.label , "性別"%><br />
+    <%= f.label :男  %>
+    <%= f.radio_button , User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]} %>
+    <%= f.label :女  %>
+    <%= f.radio_button , User.sexes.keys.map {|k| [I18n.t("enums.user.sex.#{k}"), k]} %>
+</div>
+
+  <div class="actions">
+    <%= f.submit "新規登録" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>

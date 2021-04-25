@@ -1,0 +1,22 @@
+.profile{
+
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.edit-btn{
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    border: 2px solid #031de2; 
+    // border-color: #031de2;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+}

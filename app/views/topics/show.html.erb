@@ -1,0 +1,31 @@
+<h1><%= @topic.title %></h1>
+<span>現在ログイン中のユーザー：<%= current_user.name %></span>
+
+<%= form_for(@newpost, url: post_create_path) do |f| %>
+
+    <div>
+        <%= f.label :中身 %><br>
+        <%= f.text_area :body %>
+        <%= f.hidden_field :topic_id %>
+    </div>
+    <div><%= f.submit "投稿する" %></div>
+<% end %>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>投稿者名</th>
+            <th>本文</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @posts.each do |post| %>
+            <tr>
+                <td><%= post.user.name %></td>
+                <td><%= post.title %></td>
+                <td><%= post.body %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

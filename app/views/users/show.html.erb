@@ -1,0 +1,41 @@
+<div class = "profile">
+<h1>プロフィール</h1>
+
+<p>名前 : <%= @user.name %></p>
+<p>メールアドレス : <%= @user.email %></p>
+<p>性別 : <%= @user.sex_text %></p>
+<p>自己紹介</p>
+<p><%= @user.introduce %></p>
+</br>
+<p><%= link_to "フォロー:#{@user.follow_count}",{controller: :users,action: :follow_list,user_id: @user.id}, method: :get %></p>
+<p><%= link_to "フォロワー:#{@user.followers_count}",{controller: :users,action: :follower_list,user_id: @user.id}, method: :get%></p></br>
+
+
+<% if @user.id != current_user.id %>
+  <li class="collection-item">
+    <% unless current_user.following?(@user) %>
+      <div class="action">
+        <%= link_to "フォローする", {controller: :users,action: :follow,user_id: @user.id}, method: :put ,class:"btn btn-red50_rsd" %>
+      </div>
+    <% else %>
+      <div class="action">
+         <%= link_to 'フォローを解除する' , {controller: :users,action: :unfollow,user_id: @user.id}, method: :put, class:"btn btn-red50_rsd"%>
+      </div>
+    <% end %>
+  </li>
+<% end %>
+
+<% unless @user.id == current_user.id %>
+  <% if @isRoom == true %>
+    <%= link_to "チャットへGo!", chat_path %>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, :value=> @user.id %>
+      <% end %>
+      <%= f.submit "チャットを始める" %>
+    <% end %>
+  <% end %>
+<% end %>
+
+</div>

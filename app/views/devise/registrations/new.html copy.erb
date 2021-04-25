@@ -1,0 +1,31 @@
+<div class="contents row">
+    <h2>Sign up</h2>
+    <%= form_with model: @user, url: users_sign_up_confirm_path(@user), local: true  do |f| %>
+      <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+
+      <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+      (<%= @minimum_password_length %>文字以上)
+    <% end %>
+
+            <%= f.password_field :password %>
+
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  </div>

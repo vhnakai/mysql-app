@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MysqlApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <header>
+          <div class="header-logo">
+          <%= link_to("homeに戻る", "/") %>
+          </div>
+          <ul class="header-menus">
+          <li>
+          <%= link_to("このサイトとは何？","/about")%>
+          </li>
+          <li>
+          <%= link_to("新規登録","/users/login")%>
+          </li>
+          <li>
+          <%= link_to "ログイン", new_user_session_path %>
+          </li>
+          <li>
+<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+          </li>
+
+
+  </header>
+
+  <body>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+.contents-row { 
+  // vertical-align: middle;
+  text-align: center;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.contents-row__container {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+}
+
+
+.field { 
+  text-align: center;
+}
+
+.sex-field{
+  text-align: center;
+}
+
+.actions{
+  text-align: center;
+}

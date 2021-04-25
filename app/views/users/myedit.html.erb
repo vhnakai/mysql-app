@@ -1,0 +1,11 @@
+<div class = "profile">
+<h1>プロフィール編集</h1>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+  <p>名前 : <%= f.text_field :name, value: current_user.name %></p><br/>
+  <p>Eメール： <%= f.text_field :email, value: current_user.email, class: 'email'  %></p>
+  <p>自己紹介(255文字未満)</p>
+  <p><%= f.text_area :introduce, :maxlength => "255" %></p>
+  <div><%= f.submit "保存" %></div>
+<% end %>
+</div>

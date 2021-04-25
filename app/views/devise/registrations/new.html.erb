@@ -1,0 +1,37 @@
+<div class="contents-row">
+<div class="contents-row__container">
+    <h2>新規登録</h2>
+  <%= simple_form_for @user, url: users_sign_up_confirm_path(@user), local: true do |f| %>
+      <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :name, "名前" %><br />
+    <%= f.text_field :name, autofocus: true, :placeholder => "例)山田 太郎"  %>
+  </div>
+
+      <div class="field">
+        <%= f.label :email, "メールアドレス" %><br />
+        <%= f.email_field :email, autofocus: true, class: 'email', :placeholder => "例)forexample@aaa.co.jp"  %>
+      </div>
+
+
+      <div class="field">
+    <%= f.label :password, "パスワード(6文字以上)" %><br />
+    <%# <% if @minimum_password_length %> 
+      <%# (<%= @minimum_password_length %>
+      <%# 文字以上)<br /> %>
+    <%# <% end %>
+            <%= f.password_field :password %>  
+      </div>
+
+    <div class="sex-field">
+    <%= f.label :sex, "性別" %></br>
+    <%= f.input :sex, label: false, :as => :radio_buttons %>
+    </div>
+
+      <div class="actions">
+        <%= f.submit "登録する" , class: 'sign-btn' ,required: true %>
+      </div>
+    <% end %>
+  </div>
+  </div>

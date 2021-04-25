@@ -1,0 +1,18 @@
+<div class = "profile">
+<h1>プロフィール</h1>
+<p>名前 : <%= current_user.name %></p>
+<p>メールアドレス : <%= current_user.email %></p>
+<p>性別 : <%= current_user.sex_text %></p>
+<p>生年月日 : <%= current_user.birthday %></p>
+
+<p>自己紹介</p>
+<p><%= @user.introduce %></p>
+<br/>
+<p> <%= link_to("プロフィールを変更する", "/users/edit", {class: "edit-btn"})%></p>
+
+ <%if current_user.id==@user.id%>
+  <%= @user.follow_count %>
+   <%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
+  <%= @user.followers_count %>
+   <%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get%>
+<%end%>

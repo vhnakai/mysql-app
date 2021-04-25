@@ -1,0 +1,25 @@
+<div class="confirm">
+<div class="confirm__container">
+  <h2>入力情報の確認</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <p class="confirm_name"><%= f.label :name, "名前" %><br />
+      <%= f.text_field :name, value: @user.name, readonly: true %></p>
+    
+    <p><%= f.label :email, "Eメール" %><br />
+    <%= f.text_field :email, value: @user.email, class: 'email', readonly: true %></p>
+
+    <p><%= f.label :password, "パスワード" %><br />
+    <%= f.password_field :password, value: @user.password, readonly: true %></p><br />
+
+    <p><%= f.label :sex, "性別" %>
+    <%= f.radio_button :sex,  @user.sex %>
+    <%= @user.sex_text %></p><br />
+
+    <%= f.submit "修正する", class: 'fix-btn', name: :back %>
+    <%= f.submit "登録する", class: 'reg-btn' %>
+
+  <% end %>
+</div>
+</div>
