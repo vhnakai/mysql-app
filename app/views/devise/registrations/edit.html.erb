@@ -14,11 +14,13 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: 'email', autocomplete: "email" %><br />
 
-    <%= f.label "生年月日" %>
+    <%= f.label "生年月日" %><br />
     <%= f.date_select :birthday, use_month_numbers: true,
     start_year: 1930,
     end_year: (Time.now.year - 10),
-    default: Date.new(1989, 1, 1) %>
+    default: Date.new(1989, 1, 1) %><br />
+    <%= f.label "都道府県" %><br />
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %><br />
 
     <p>自己紹介(255文字未満)</p>
     <p><%= f.text_area :introduce, :maxlength => "255" %></p><br />
