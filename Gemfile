@@ -70,6 +70,7 @@ gem "refile-mini_magick"
 gem 'active_hash'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'seed-fu'
+gem 'active_hash'
 
 source "https://rubygems.org"
 

@@ -31,7 +31,7 @@ class User < ApplicationRecord
   acts_as_followable 
   acts_as_follower
   belongs_to :prefecture, optional: true
-
+  
   has_many :posts, dependent: :destroy
   has_many :chats,dependent: :destroy
   has_many :topics, dependent: :destroy

@@ -22,6 +22,12 @@
     <%= f.label "都道府県" %><br />
     <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, include_blank: '選択して下さい' %><br />
 
+    <%= f.label "市町村" %><br />
+    <%= f.text_field :city, autofocus: true %><br />
+
+    <%= f.label "趣味" %><br />
+    <%= f.text_field :hobby, autofocus: true %><br />
+
     <p>自己紹介(255文字未満)</p>
     <p><%= f.text_area :introduce, :maxlength => "255" %></p><br />
 
