@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_28_133614) do
+ActiveRecord::Schema.define(version: 2021_04_30_120057) do
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "users_id", null: false
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_133614) do
     t.bigint "prefecture_id", null: false
     t.string "city"
     t.string "hobby"
+    t.string "LikeType"
     t.index ["prefecture_id"], name: "index_users_on_prefecture_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

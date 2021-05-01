@@ -13,6 +13,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    birthday = @user.birthday
+    @age = (Date.today.strftime("%Y%m%d").to_i - birthday.strftime("%Y%m%d").to_i) / 10000
+
     #チャット
     if user_signed_in?
         #Entry内のuser_idがcurrent_userと同じEntry
@@ -63,7 +66,9 @@ end
 
   def mypage
     @user = User.find_by(id: session[:user_id])
-    # @user = User.find_by(id: params[:id])
+    birthday = @user.birthday
+    @age = (Date.today.strftime("%Y%m%d").to_i - birthday.strftime("%Y%m%d").to_i) / 10000
+
   end
 
 
