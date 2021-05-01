@@ -40,5 +40,15 @@ class User < ApplicationRecord
     return Topic.where(user_id: self.id)
   end
 
+  #https://dev.to/branmar97/building-an-advanced-search-form-in-rails-6-2fkm ここからベースを取っています。
+  def self.search(search) #search wa kensakushitai mono
+    if search
+      #例えば誕生日から
+      where(["birthday like ?", "%#{search}%"]) #ここで情報をとてくる 
+    else
+      all
+    end
+  end
+
 
 end

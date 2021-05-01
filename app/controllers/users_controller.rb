@@ -40,7 +40,13 @@ class UsersController < ApplicationController
               end
             end
     end
-end
+  end
+
+
+  #https://dev.to/branmar97/building-an-advanced-search-form-in-rails-6-2fkm ここからベースを取っています。
+  def index
+    @user = User.search(params[:search]) #ここでサーチする
+  end
 
 
     # @user = User.find_by(id: params[:id])
